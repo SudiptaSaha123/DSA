@@ -1,4 +1,4 @@
-Problem Link : https://www.codingninjas.com/codestudio/problems/queue-using-array-or-singly-linked-list_2099908
+// Problem Link : https://www.codingninjas.com/codestudio/problems/queue-using-array-or-singly-linked-list_2099908
 
 #include <bits/stdc++.h> 
 class Queue {
@@ -14,7 +14,7 @@ public:
         qrear = 0;
     }
 
-    /*----------------- Public Functions of Queue -----------------*/
+    // ----------------- Public Functions of Queue -----------------
 
     bool isEmpty() {
         if(qfront == qrear){
