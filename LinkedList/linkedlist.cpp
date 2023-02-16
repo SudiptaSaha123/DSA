@@ -10,6 +10,15 @@ class Node{
         this -> data = data;
         this -> next = NULL;
     }
+    //Destructor
+    ~Node() {
+        int value = this -> data;
+        //memory free
+        if(this->next != NULL) {
+            delete next;
+            this->next = NULL;
+        }
+    }
 };
 
 void insertAtHead(Node* &head, int d){
@@ -54,6 +63,28 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int data){
     temp -> next = nodeToInsert;
 }
 
+void deleteNode(int position, Node*& head){
+    if(position == 1){
+        Node* temp = head;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+    else{
+        Node* prev = NULL;
+        Node* curr = head;
+        int count = 1;
+        while(count < position){
+            prev = curr;
+            curr = curr ->next;
+            count++;
+        }
+
+        prev -> next = curr ->next;
+        curr -> next = NULL;
+        delete curr;
+    }
+}
 void print(Node* &head){
     Node* temp = head;
     while(temp != NULL){
@@ -94,6 +125,9 @@ int main(){
     print(head);
 
     insertAtPosition(head, tail, 1, 95);  
+    print(head);
+
+    deleteNode(4,head);
     print(head);
     return 0;
 }
